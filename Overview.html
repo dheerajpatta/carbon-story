@@ -101,7 +101,7 @@
           .attr("transform", `translate(${margin.left},${margin.top})`);
       
       // Parse the Data
-      d3.csv("").then( function(data) {
+      d3.csv("data/fuel_type.csv").then( function(data) {
       
       // X axis
       const x = d3.scaleBand()
