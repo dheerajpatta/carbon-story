@@ -1,54 +1,84 @@
 <!DOCTYPE html>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v6.js"></script>
-<!-- Create a div where the graph will take place -->
-<div id="my_overview"></div>
-<body>
-  <script>
-    // set the dimensions and margins of the graph
-    const margin = {top: 30, right: 30, bottom: 70, left: 60},
-        width = 460 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="C02 Emissions Overview">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Overview</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Overview.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 3.21.3, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Inter:100,200,300,400,500,600,700,800,900">
     
-    // append the svg object to the body of the page
-    const svg = d3.select("my_overview")
-      .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
     
-    // Parse the Data
-    d3.csv("https://github.com/dheerajpatta/carbon-story/blob/main/data/fuel_type.csv", function(data) {
-    
-    // X axis
-    const x = d3.scaleBand()
-    .range([ 0, width ])
-    .domain(data.map(d => d.Type))
-    .padding(0.2);
-    svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
-
-    // Add Y axis
-    const y = d3.scaleLinear()
-    .domain([0, 13000])
-    .range([ height, 0]);
-    svg.append("g")
-    .call(d3.axisLeft(y));
-
-    // Bars
-    svg.selectAll("mybar")
-      .data(data)
-      .join("rect")
-      .attr("x", d => x(d.Type))
-      .attr("y", d => y(d.Value))
-      .attr("width", x.bandwidth())
-      .attr("height", d => height - y(d.Value))
-      .attr("fill", "#69b3a2")
-    })
-  </script>
-</body>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Overview">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body">
+    <section class="u-clearfix u-palette-5-light-3 u-section-1" id="sec-8547">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-1">Co2 Emissions Overview</h2>
+        <a href="Trends.html" data-page-id="97278982" class="u-active-black u-border-2 u-border-grey-75 u-btn u-button-style u-custom-font u-hover-palette-4-light-2 u-palette-5-light-1 u-btn-1">Next --&gt;</a>
+        <a href="Home.html" data-page-id="2809120423" class="u-active-black u-border-2 u-border-grey-75 u-btn u-button-style u-custom-font u-hover-palette-4-light-2 u-palette-5-light-1 u-btn-2">&lt;-- Previous</a>
+        <p class="u-custom-font u-text u-text-default u-text-2">How are we doing today?&nbsp;</p>
+        <div class="u-clearfix u-gutter-20 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-col">
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-align-center u-container-style u-layout-cell u-palette-1-light-3 u-size-30 u-layout-cell-1">
+                    <div class="u-border-1 u-border-palette-5-light-2 u-container-layout u-container-layout-1">
+                      <h4 class="u-custom-font u-text u-text-3">Total Emissions<br>
+                        <span style="font-size: 1rem; font-weight: 400;">(in metric tons)</span>
+                      </h4>
+                      <h4 class="u-custom-font u-text u-text-4">400M</h4>
+                    </div>
+                  </div>
+                  <div class="u-align-center u-container-style u-layout-cell u-palette-2-light-3 u-size-30 u-layout-cell-2">
+                    <div class="u-border-1 u-border-palette-5-light-2 u-container-layout u-container-layout-2">
+                      <h4 class="u-custom-font u-text u-text-5">Total Solid Fuel<br>
+                        <span style="font-size: 1rem; font-weight: 400;">(in metric tons)</span>
+                      </h4>
+                      <h4 class="u-custom-font u-text u-text-6">190.7M</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-layout-cell u-palette-3-light-3 u-size-30 u-layout-cell-3">
+                    <div class="u-border-1 u-border-palette-5-light-2 u-container-layout u-container-layout-3">
+                      <h4 class="u-align-center u-custom-font u-text u-text-7">Total Liquid Fuel<br>
+                        <span style="font-size: 1rem; font-weight: 400;">(in metric tons)</span>
+                      </h4>
+                      <h4 class="u-custom-font u-text u-text-8">130.7M</h4>
+                    </div>
+                  </div>
+                  <div class="u-align-center u-container-style u-layout-cell u-palette-4-light-3 u-size-30 u-layout-cell-4">
+                    <div class="u-border-1 u-border-palette-5-light-2 u-container-layout u-container-layout-4">
+                      <h4 class="u-custom-font u-text u-text-9">Total Cement<br>
+                        <span style="font-size: 1rem; font-weight: 400;">(in metric tons)</span>
+                      </h4>
+                      <h4 class="u-custom-font u-text u-text-10">11.0M</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
