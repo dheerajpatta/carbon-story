@@ -110,39 +110,6 @@
       .append("g")
       .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
-
-      // get the data
-      d3.csv("data/fuel_type.csv", function(error, data) {
-      if (error) throw error;
-
-      // format the data
-      data.forEach(function(d) {
-      d.Value = +d.Value;
-      });
-
-      // Scale the range of the data in the domains
-      x.domain(data.map(function(d) { return d.Type; }));
-      y.domain([0, d3.max(data, function(d) { return d.Value; })]);
-
-      // append the rectangles for the bar chart
-      svg.selectAll(".bar")
-        .data(data)
-        .enter().append("rect")
-          .attr("class", "bar")
-          .attr("x", function(d) { return x(d.Type); })
-          .attr("width", x.bandwidth())
-          .attr("y", function(d) { return y(d.Value); })
-          .attr("height", function(d) { return height - y(d.Value); });
-
-      // add the x Axis
-      svg.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-
-      // add the y Axis
-      svg.append("g")
-        .call(d3.axisLeft(y));
-      });
-      </script>
+    </script>
   </body>
 </html>
