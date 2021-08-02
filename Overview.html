@@ -24,7 +24,7 @@
     // X axis
     const x = d3.scaleBand()
     .range([ 0, width ])
-    .domain(data.map(d => d.Country))
+    .domain(data.map(d => d.Type))
     .padding(0.2);
     svg.append("g")
     .attr("transform", `translate(0, ${height})`)
@@ -44,7 +44,7 @@
     svg.selectAll("mybar")
       .data(data)
       .join("rect")
-      .attr("x", d => x(d.Country))
+      .attr("x", d => x(d.Type))
       .attr("y", d => y(d.Value))
       .attr("width", x.bandwidth())
       .attr("height", d => height - y(d.Value))
