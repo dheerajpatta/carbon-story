@@ -1,0 +1,26 @@
+[
+    {
+      "type": "Liquid Fuel",
+      "emissions": 130.8
+    },
+    {
+      "type": "Solid Fuel",
+      "emissions": 190.8
+    },
+    {
+      "type": "Gas Fuel",
+      "emissions": 55
+    },
+    {
+      "type": "Gas Flaring",
+      "emissions": 3.4
+    },
+    {
+      "type": "Cement",
+      "emissions": 11
+    },
+    {
+      "type": "Bunker",
+      "emissions": 9.7
+    }
+  ]

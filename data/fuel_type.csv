@@ -1,7 +1,7 @@
-"Type,Value"
-"Liquid Fuel,130.8"
-"Solid Fuel,190.8"
-"Gas Fuel,55.0"
-"Gas Flaring,3.4"
-"Cement,11"
-"Bunker,9.7"
+year,value
+2011,130
+2012,190
+2013,55
+2014,3
+2015,11
+2016,9
