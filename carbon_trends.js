@@ -34,7 +34,48 @@ d3.csv("https://raw.githubusercontent.com/dheerajpatta/carbon-story/main/data/co
       svg.append("g")
       .call(d3.axisLeft(y));
 
-    // Add the line
+    // Add a tooltip div.
+  var tooltip = d3.select("#d3-dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "lightblue")
+  .style("border", "none")
+  .style("border-width", "1px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+  .style("width", "200px")
+  .style("font-size", "12px")
+  .attr("class", "u-custom-font u-text u-text-default u-text-2")
+
+      // A function that change this tooltip when the user hover a point.
+    var mouseover = function(d, data) {
+    tooltip
+    .transition()
+    .duration(200)
+    .style("opacity", 1)
+    d3.select(this)
+    .style("stroke", "black")
+    .style("opacity", 1)
+}
+
+  var mousemove = function(d, data) {
+  tooltip
+  // .html("In "+ d.date + " the emissions (in million metric tons) are : " + d.value)
+  .html("There is an exponential upward trend due to multiple Industrial revolutions in 1750, 1870, 1970 and 2000")
+  .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+  .style("top", (d3.mouse(this)[10]) + "px")
+}
+
+// A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d, data) {
+  tooltip
+  .transition()
+  .duration(200)
+  .style("opacity", 0)
+}
+    
+// Add the line
     svg.append("path")
       .datum(data)
       .attr("fill", "none")
@@ -43,6 +84,9 @@ d3.csv("https://raw.githubusercontent.com/dheerajpatta/carbon-story/main/data/co
       .attr("d", d3.line()
         .x(function(d) { return x(d.date) })
         .y(function(d) { return y(d.value) }))
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
 
     // Animation using transitions
     svg.select("line")
@@ -101,7 +145,7 @@ d3.csv("https://raw.githubusercontent.com/dheerajpatta/carbon-story/main/data/co
         .attr("x1", x(1))
         .attr("x2", x(150))
         .attr("y1", y(0))
-        .attr("y2", y(8000000))
+        .attr("y2", y(5000000))
         .attr("stroke", "grey")
         .attr("stroke-dasharray", "4")
       }
@@ -109,7 +153,7 @@ d3.csv("https://raw.githubusercontent.com/dheerajpatta/carbon-story/main/data/co
       function addAnnotations1(g) {
           g.append("text")
           .attr("x", width/1.75)
-          .attr("y", 125)
+          .attr("y", 165)
           .text("Third Industrial Revolution (1969 onwards)")
           .attr("class", "u-custom-font u-text u-text-default u-text-2")
           .style("background-color", "gray")
