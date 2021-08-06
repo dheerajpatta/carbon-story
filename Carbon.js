@@ -73,23 +73,24 @@ svg
     .data(data.sort((a, b) => d3.descending(a.value, b.value)))
     .join("rect")
     .attr("x", (d, i) => x(i))
-    .attr("y", d => y(d.value)) //.attr("y", function(d) { return y(0);})
+    //.attr("y", d => y(d.value)) 
+    .attr("y", function(d) { return y(0);})
     .attr('title', (d) => d.value)
     .attr("class", "rect")
-    //.attr("height", function(d) { return height - y(0); }) // always equal to 0
-    .attr("height", d => y(0) - y(d.value))
+    .attr("height", function(d) { return height - y(0); }) // always equal to 0
+    //.attr("height", d => y(0) - y(d.value))
     .attr("width", x.bandwidth())
     .on("mouseover", mouseover)
     .on("mousemove", mousemove)
     .on("mouseleave", mouseleave)
 
-/* Animation using transitions
+// Animation using transitions
     svg.selectAll("rect")
         .transition()
         .duration(800)
         .attr("y", d => y(d.value))
         .attr("height", d => y(0) - y(d.value))
-        .delay(function(d,i){console.log(i) ; return(i*100)});*/
+        .delay(function(d,i){console.log(i) ; return(i*100)});
     
     function yAxis(g) {
     g.attr("transform", `translate(${margin.left}, 0)`)
