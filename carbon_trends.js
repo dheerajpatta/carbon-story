@@ -63,7 +63,7 @@ d3.csv("https://raw.githubusercontent.com/dheerajpatta/carbon-story/main/data/co
   tooltip
   // .html("In "+ d.date + " the emissions (in million metric tons) are : " + d.value)
   .html("There is an exponential upward trend due to multiple Industrial revolutions in 1750, 1870, 1970 and 2000")
-  .style("left", (d3.mouse(this)[0]+90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+  .style("left", (d3.mouse(this)[0]+90) + "px")
   .style("top", (d3.mouse(this)[10]) + "px")
 }
 

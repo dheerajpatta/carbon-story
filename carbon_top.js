@@ -63,8 +63,8 @@ var mouseover = function(d, data) {
 var mousemove = function(d, data) {
 tooltip
   .html("Total emissions of " + d.country + " in million metric tons: " + d.value)
-  .style("left", (d3.mouse(this)[50]) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-  .style("top", (d3.mouse(this)[50]) + "px")
+  .style("left", (d3.mouse(this)[0]) + "px")
+  .style("top", (d3.mouse(this)[0]) + "px")
 }
 
 // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
