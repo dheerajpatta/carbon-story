@@ -160,7 +160,7 @@ svg
     .attr("font-size", '15px')
   }
 
-  // Add Annotations
+// Add Annotations
 // Append a horizontal line to highlight the annotation
 
 function addAnnotationsLine(g) {
