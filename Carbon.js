@@ -83,13 +83,13 @@ svg
     .on("mousemove", mousemove)
     .on("mouseleave", mouseleave)
 
-// Animation using transitions
+/* Animation using transitions
     svg.selectAll("rect")
         .transition()
         .duration(800)
         .attr("y", d => y(d.value))
         .attr("height", d => y(0) - y(d.value))
-        .delay(function(d,i){console.log(i) ; return(i*100)});
+        .delay(function(d,i){console.log(i) ; return(i*100)});*/
     
     function yAxis(g) {
     g.attr("transform", `translate(${margin.left}, 0)`)
