@@ -8,13 +8,17 @@
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Analysis</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Analysis.css" media="screen">
+    <link rel="stylesheet" href="Analysis.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <meta name="generator" content="Nicepage 3.21.3, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Inter:100,200,300,400,500,600,700,800,900">
-    
+    <style>
+      .chart {fill: #009eeb; }
+      .tooltip {background-color: lightblue; border: none; border-radius: 5px; padding: 15px; min-width: 50px; text-align: left; color: black;}
+    </style>
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -48,13 +52,15 @@
                 <div class="u-layout-row">
                   <div class="u-container-style u-layout-cell u-size-21 u-layout-cell-2">
                     <div class="u-container-layout u-container-layout-2">
-                      <img class="u-expanded-height u-image u-image-default u-image-2" src="images/32.png" alt="" data-image-width="584" data-image-height="563">
+                      <svg width="100" height="50"></svg>
+                      <div id="my_dataviz_top"></div>
+                      <script src="carbon_top.js"></script>
                     </div>
                   </div>
                   <div class="u-container-style u-layout-cell u-size-39 u-layout-cell-3">
                     <div class="u-container-layout u-container-layout-3">
                       <h5 class="u-text u-text-default u-text-3"> China, the USA and other developed nations account for more than half <br> of global emissions leading the race of most emissions by country.<br>
-                        <br>The distribution of emissions has changed significantly over time. The UK was – until 1888, when it was overtaken by the US – the world’s largest emitter. Later in 21st century Asia, especially China emerges as the largest emittor of Co2.&nbsp;<br>
+                        <br>The distribution of emissions has changed significantly over time. <br> The UK was – until 1888, when it was overtaken by the US – the world’s largest emitter. Later in 21st century Asia, especially China emerges as the largest emittor of Co2.&nbsp;<br>
                       </h5>
                     </div>
                   </div>
