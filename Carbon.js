@@ -40,7 +40,6 @@ var tooltip = d3.select("#d3-container")
   .style("font-size", "12px")
   .attr("class", "u-custom-font u-text u-text-default u-text-2")
 
-
 // A function that change this tooltip when the user hover a point.
 var mouseover = function(d, data) {
     tooltip
