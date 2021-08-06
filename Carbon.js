@@ -73,11 +73,11 @@ svg
     .data(data.sort((a, b) => d3.descending(a.value, b.value)))
     .join("rect")
     .attr("x", (d, i) => x(i))
-    .attr("y", function(d) { return y(0);}) //.attr("y", d => y(d.value))
+    .attr("y", d => y(d.value)) //.attr("y", function(d) { return y(0);})
     .attr('title', (d) => d.value)
     .attr("class", "rect")
-    .attr("height", function(d) { return height - y(0); }) // always equal to 0
-    //.attr("height", d => y(0) - y(d.value))
+    //.attr("height", function(d) { return height - y(0); }) // always equal to 0
+    .attr("height", d => y(0) - y(d.value))
     .attr("width", x.bandwidth())
     .on("mouseover", mouseover)
     .on("mousemove", mousemove)
